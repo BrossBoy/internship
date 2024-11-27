@@ -1,15 +1,12 @@
 import numpy as np
 
 
-def cal_cagr(year, history):
-    day = 365 * year
-    if day < len(history):
-        cagr = (history[-1] / history[-day]) ** (1 / year) - 1
-        cagr *= 100
-        return cagr
-    else:
-        print("cant find cagr")
-        return 0
+def cal_cagr(history):
+    end_value = history[-1]
+    start_value = history[0]
+    year = len(history) / 250
+    cagr = (end_value / start_value) ** (1 / year) - 1
+    return cagr
 
 
 def cal_max_drawdown(history):
